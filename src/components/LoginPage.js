@@ -48,36 +48,6 @@ const LoginPage = ({ onLogin, darkMode }) => {
   const [currentLang, setCurrentLang] = useState('english');
   const t = translations[currentLang];
 
-  const initializeSpeechRecognition = () => {
-    if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      const recognition = new SpeechRecognition();
-      recognition.continuous = false;
-      recognition.interimResults = false;
-      recognition.lang = currentLang === 'hindi' ? 'hi-IN' : currentLang === 'punjabi' ? 'pa-IN' : 'en-IN';
-
-      recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
-        if (transcript.includes('phone') || /[0-9]{10}/.test(transcript)) {
-          const phoneMatch = transcript.match(/[0-9]{10}/);
-          if (phoneMatch) setPhoneNumber(phoneMatch[0]);
-        }
-        if (transcript.includes('card') || transcript.includes('farmer')) {
-          const cardMatch = transcript.match(/[0-9]+/g);
-          if (cardMatch) setFarmerCard(cardMatch.join(''));
-        }
-        setIsListening(false);
-      };
-
-      recognition.onerror = () => setIsListening(false);
-      recognition.onend = () => setIsListening(false);
-      
-      setSpeechRecognition(recognition);
-      return recognition;
-    }
-    return null;
-  };
-
   const handleVoiceLogin = () => {
     if (!isListening) {
       setIsListening(true);

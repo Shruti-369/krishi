@@ -27,7 +27,6 @@ const CropAdvisory = ({ user, darkMode }) => {
   const [currentMessage, setCurrentMessage] = useState('');
   const [capturedImage, setCapturedImage] = useState(null);
   const [analysisResult, setAnalysisResult] = useState(null);
-  const [responseHistory, setResponseHistory] = useState([]);
   const { speak } = useSpeechSynthesis();
 
   const { language } = React.useContext(LanguageContext);
@@ -375,7 +374,6 @@ const CropAdvisory = ({ user, darkMode }) => {
         message: response
       };
       setChatMessages(prev => [...prev, botResponse]);
-      setResponseHistory(prev => [...prev.slice(-4), currentMessage]); // Keep last 5 messages
       speak({ text: 'Response received' });
     }, 1000);
 
