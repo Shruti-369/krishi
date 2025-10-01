@@ -920,15 +920,15 @@ Ask me anything about farming! 🌾`;
     <div className={`min-h-screen p-4 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className={`text-3xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-farmer-green'}`}>
+        <div className="mb-6">
+          <h1 className={`text-2xl font-bold mb-1 ${darkMode ? 'text-white' : 'text-farmer-green'}`}>
             {t.title}
           </h1>
-          <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+          <p className={`text-base ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
             {t.subtitle}
           </p>
-          <div className={`p-4 rounded-lg mt-4 ${darkMode ? 'bg-gray-800' : 'bg-blue-50'}`}>
-            <p className={`text-sm ${darkMode ? 'text-gray-300' : 'text-blue-800'}`}>
+          <div className={`p-3 rounded-lg mt-3 ${darkMode ? 'bg-gray-800' : 'bg-blue-50'}`}>
+            <p className={`text-xs ${darkMode ? 'text-gray-300' : 'text-blue-800'}`}>
               {t.disclaimer}
             </p>
           </div>
@@ -937,12 +937,12 @@ Ask me anything about farming! 🌾`;
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Manual Input Section */}
           <div className={`farmer-card ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
-            <h2 className={`text-xl font-semibold mb-4 flex items-center ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-              <Brain className="w-6 h-6 mr-2 text-blue-500" />
+            <h2 className={`text-lg font-semibold mb-3 flex items-center ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              <Brain className="w-5 h-5 mr-2 text-blue-500" />
               {t.manualInput}
             </h2>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               <div>
                 <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                   {t.selectCrop}
@@ -1035,12 +1035,12 @@ Ask me anything about farming! 🌾`;
 
           {/* Photo Detection Section */}
           <div className={`farmer-card ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
-            <h2 className={`text-xl font-semibold mb-4 flex items-center ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-              <Camera className="w-6 h-6 mr-2 text-green-500" />
+            <h2 className={`text-lg font-semibold mb-3 flex items-center ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              <Camera className="w-5 h-5 mr-2 text-green-500" />
               {t.photoDetection}
             </h2>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {capturedImage ? (
                 <div className="text-center">
                   <img 
@@ -1103,8 +1103,8 @@ Ask me anything about farming! 🌾`;
         {/* AI Recommendations Results */}
         {analysisResult && (
           <div className={`farmer-card mt-8 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
-            <h2 className={`text-xl font-semibold mb-4 flex items-center ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-              <CheckCircle className="w-6 h-6 mr-2 text-green-500" />
+            <h2 className={`text-lg font-semibold mb-3 flex items-center ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              <CheckCircle className="w-5 h-5 mr-2 text-green-500" />
               {t.recommendations}
             </h2>
 
@@ -1194,12 +1194,12 @@ Ask me anything about farming! 🌾`;
 
         {/* Chatbot Section */}
         <div className={`farmer-card mt-8 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
-          <h2 className={`text-xl font-semibold mb-4 flex items-center ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-            <Mic className="w-6 h-6 mr-2 text-purple-500" />
+          <h2 className={`text-lg font-semibold mb-3 flex items-center ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+            <Mic className="w-5 h-5 mr-2 text-purple-500" />
             {t.chatBot}
           </h2>
 
-          <div className="space-y-4">
+          <div className="space-y-3">
             {/* Chat Messages */}
             <div className={`h-64 overflow-y-auto p-4 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}>
               {chatMessages.map((msg) => (

@@ -131,10 +131,10 @@ const LoginPage = ({ onLogin, darkMode }) => {
       <div className={`farmer-card max-w-md w-full ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className={`text-4xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-farmer-green'}`}>
+          <h1 className={`text-3xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-farmer-green'}`}>
             {t.title}
           </h1>
-          <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-earth-brown'}`}>
+          <p className={`text-base ${darkMode ? 'text-gray-300' : 'text-earth-brown'}`}>
             {t.subtitle}
           </p>
         </div>
@@ -166,14 +166,14 @@ const LoginPage = ({ onLogin, darkMode }) => {
         </div>
 
         {/* Login Form */}
-        <form onSubmit={handleLogin} className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-3">
           <div>
             <input
               type="tel"
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
               placeholder={t.phonePlaceholder}
-              className={`w-full p-4 border-2 rounded-lg text-lg focus:outline-none focus:border-farmer-green ${
+              className={`w-full p-3 border-2 rounded-lg text-base focus:outline-none focus:border-farmer-green ${
                 darkMode 
                   ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
                   : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
@@ -188,7 +188,7 @@ const LoginPage = ({ onLogin, darkMode }) => {
               value={farmerCard}
               onChange={(e) => setFarmerCard(e.target.value)}
               placeholder={t.cardPlaceholder}
-              className={`w-full p-4 border-2 rounded-lg text-lg focus:outline-none focus:border-farmer-green ${
+              className={`w-full p-3 border-2 rounded-lg text-base focus:outline-none focus:border-farmer-green ${
                 darkMode 
                   ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
                   : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'

@@ -259,11 +259,11 @@ const Dashboard = ({ user, darkMode }) => {
     <div className={`min-h-screen p-4 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className={`text-3xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-farmer-green'}`}>
+        <div className="mb-6">
+          <h1 className={`text-2xl font-bold mb-1 ${darkMode ? 'text-white' : 'text-farmer-green'}`}>
             {t.welcome}
           </h1>
-          <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+          <p className={`text-base ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
             {t.tagline}
           </p>
         </div>
@@ -281,7 +281,7 @@ const Dashboard = ({ user, darkMode }) => {
               </span>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-3">
               <div className="text-center">
                 <Thermometer className="w-8 h-8 mx-auto mb-2 text-red-500" />
                 <p className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'}`}>

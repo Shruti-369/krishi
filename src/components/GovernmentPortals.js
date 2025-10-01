@@ -181,11 +181,11 @@ const GovernmentPortals = ({ user, darkMode }) => {
     <div className={`min-h-screen p-4 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className={`text-3xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-farmer-green'}`}>
+        <div className="mb-6">
+          <h1 className={`text-2xl font-bold mb-1 ${darkMode ? 'text-white' : 'text-farmer-green'}`}>
             {t.title}
           </h1>
-          <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+          <p className={`text-base ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
             {t.subtitle}
           </p>
         </div>
@@ -218,32 +218,32 @@ const GovernmentPortals = ({ user, darkMode }) => {
             </button>
 
             {/* Portal Card */}
-            <div className="px-16 py-8">
+            <div className="px-12 py-6">
               <div className="text-center">
                 {/* Icon */}
-                <div className={`inline-flex items-center justify-center w-20 h-20 rounded-full ${currentPortal.color} mb-6`}>
-                  <Icon className="w-10 h-10 text-white" />
+                <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full ${currentPortal.color} mb-4`}>
+                  <Icon className="w-8 h-8 text-white" />
                 </div>
 
                 {/* Title */}
-                <h2 className={`text-2xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                <h2 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                   {currentPortal.title}
                 </h2>
 
                 {/* Category Badge */}
-                <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium mb-4 ${
+                <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 ${
                   darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-200 text-gray-700'
                 }`}>
                   {currentPortal.category}
                 </span>
 
                 {/* Description */}
-                <p className={`text-lg mb-8 max-w-2xl mx-auto ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                <p className={`text-base mb-6 max-w-2xl mx-auto ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                   {currentPortal.description}
                 </p>
 
                 {/* Action Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <button
                     onClick={() => handlePortalClick(currentPortal.url, currentPortal.title)}
                     className="farmer-button flex items-center justify-center"
