@@ -256,21 +256,21 @@ const Dashboard = ({ user, darkMode }) => {
   ];
 
   return (
-    <div className={`min-h-screen p-4 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
+    <div className={`min-h-screen p-6 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-6">
-          <h1 className={`text-2xl font-bold mb-1 ${darkMode ? 'text-white' : 'text-farmer-green'}`}>
+        <div className="mb-8">
+          <h1 className={`text-3xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-farmer-green'}`}>
             {t.welcome}
           </h1>
-          <p className={`text-base ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+          <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
             {t.tagline}
           </p>
         </div>
 
         {/* Weather Alerts */}
         {weather && (
-          <div className={`farmer-card mb-6 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
+          <div className={`farmer-card mb-8 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
             <div className="flex items-center justify-between mb-4">
               <h2 className={`text-xl font-semibold flex items-center ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                 <Cloud className="w-6 h-6 mr-2 text-blue-500" />
@@ -352,7 +352,7 @@ const Dashboard = ({ user, darkMode }) => {
               {t.profile}
             </h2>
             
-            <div className="space-y-4">
+            <div className="space-y-5">
               <div>
                 <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                   {t.farmSize}
@@ -370,21 +370,44 @@ const Dashboard = ({ user, darkMode }) => {
                 />
               </div>
 
-              <div>
-                <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                  {t.farmingYears}
-                </label>
-                <input
-                  type="number"
-                  value={farmerProfile.farmingYears}
-                  onChange={(e) => setFarmerProfile({...farmerProfile, farmingYears: e.target.value})}
-                  className={`w-full p-3 border rounded-lg focus:outline-none focus:border-farmer-green ${
-                    darkMode 
-                      ? 'bg-gray-700 border-gray-600 text-white' 
-                      : 'bg-white border-gray-300 text-gray-900'
-                  }`}
-                  placeholder="Years of experience"
-                />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                    {t.farmingYears}
+                  </label>
+                  <input
+                    type="number"
+                    value={farmerProfile.farmingYears}
+                    onChange={(e) => setFarmerProfile({...farmerProfile, farmingYears: e.target.value})}
+                    className={`w-full p-3 border rounded-lg focus:outline-none focus:border-farmer-green ${
+                      darkMode 
+                        ? 'bg-gray-700 border-gray-600 text-white' 
+                        : 'bg-white border-gray-300 text-gray-900'
+                    }`}
+                    placeholder="Years of experience"
+                  />
+                </div>
+
+                <div>
+                  <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                    {t.soilType}
+                  </label>
+                  <select
+                    value={farmerProfile.soilType}
+                    onChange={(e) => setFarmerProfile({...farmerProfile, soilType: e.target.value})}
+                    className={`w-full p-3 border rounded-lg focus:outline-none focus:border-farmer-green ${
+                      darkMode 
+                        ? 'bg-gray-700 border-gray-600 text-white' 
+                        : 'bg-white border-gray-300 text-gray-900'
+                    }`}
+                  >
+                    <option value="">Select soil type</option>
+                    <option value="clay">Clay</option>
+                    <option value="sandy">Sandy</option>
+                    <option value="loamy">Loamy</option>
+                    <option value="silty">Silty</option>
+                  </select>
+                </div>
               </div>
 
               <div>
@@ -399,30 +422,9 @@ const Dashboard = ({ user, darkMode }) => {
                       ? 'bg-gray-700 border-gray-600 text-white' 
                       : 'bg-white border-gray-300 text-gray-900'
                   }`}
-                  rows="3"
+                  rows="4"
                   placeholder="List previous crops grown"
                 />
-              </div>
-
-              <div>
-                <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                  {t.soilType}
-                </label>
-                <select
-                  value={farmerProfile.soilType}
-                  onChange={(e) => setFarmerProfile({...farmerProfile, soilType: e.target.value})}
-                  className={`w-full p-3 border rounded-lg focus:outline-none focus:border-farmer-green ${
-                    darkMode 
-                      ? 'bg-gray-700 border-gray-600 text-white' 
-                      : 'bg-white border-gray-300 text-gray-900'
-                  }`}
-                >
-                  <option value="">Select soil type</option>
-                  <option value="clay">Clay</option>
-                  <option value="sandy">Sandy</option>
-                  <option value="loamy">Loamy</option>
-                  <option value="silty">Silty</option>
-                </select>
               </div>
 
               <button
@@ -446,7 +448,7 @@ const Dashboard = ({ user, darkMode }) => {
                   <img 
                     src={capturedImage} 
                     alt="Captured" 
-                    className="w-full h-48 object-cover rounded-lg mb-4"
+                    className="w-full h-56 object-cover rounded-lg mb-4"
                   />
                   <button
                     onClick={handleImageAnalysis}
@@ -456,7 +458,7 @@ const Dashboard = ({ user, darkMode }) => {
                   </button>
                 </div>
               ) : (
-                <div className="text-center py-8">
+                <div className="text-center py-10">
                   <Camera className="w-16 h-16 mx-auto mb-4 text-gray-400" />
                   <p className={`mb-4 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                     Capture or select an image
@@ -464,7 +466,7 @@ const Dashboard = ({ user, darkMode }) => {
                 </div>
               )}
 
-              <div className="flex gap-2">
+              <div className="flex gap-3">
                 <button
                   onClick={handleImageCapture}
                   className="flex-1 farmer-button"
@@ -540,7 +542,7 @@ const Dashboard = ({ user, darkMode }) => {
         </div>
 
         {/* Recent Searches */}
-        <div className={`farmer-card mt-6 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
+        <div className={`farmer-card mt-8 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
           <h2 className={`text-xl font-semibold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
             {t.recentSearches}
           </h2>
@@ -561,7 +563,7 @@ const Dashboard = ({ user, darkMode }) => {
         </div>
 
         {/* Help Line */}
-        <div className={`text-center mt-8 p-4 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-farmer-green'}`}>
+        <div className={`text-center mt-8 p-5 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-farmer-green'}`}>
           <p className={`text-lg font-semibold ${darkMode ? 'text-white' : 'text-white'}`}>
             {t.helpLine}
           </p>

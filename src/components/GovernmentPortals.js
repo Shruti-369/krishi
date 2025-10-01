@@ -94,7 +94,7 @@ const GovernmentPortals = ({ user, darkMode }) => {
       title: t.pauPortal,
       description: t.pauDesc,
       icon: GraduationCap,
-      url: 'https://www.pau.edu',
+      url: 'https://www.pau.edu/index.php', // Direct PAU homepage
       color: 'bg-blue-500',
       category: 'Education & Research'
     },
@@ -121,7 +121,7 @@ const GovernmentPortals = ({ user, darkMode }) => {
       title: t.mandiBoard,
       description: t.mandiDesc,
       icon: Scale,
-      url: 'https://www.mandiboard.gov.in',
+      url: 'https://psamb.gov.in', // Punjab State Agricultural Marketing Board
       color: 'bg-purple-500',
       category: 'Marketing'
     },
@@ -167,11 +167,6 @@ const GovernmentPortals = ({ user, darkMode }) => {
   const goToSlide = (index) => {
     setCurrentIndex(index);
     setAutoSlide(false);
-  };
-
-  const handlePortalClick = (url, title) => {
-    speak({ text: `Opening ${title}` });
-    window.open(url, '_blank');
   };
 
   const currentPortal = portals[currentIndex];
@@ -243,14 +238,17 @@ const GovernmentPortals = ({ user, darkMode }) => {
                 </p>
 
                 {/* Action Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <button
-                    onClick={() => handlePortalClick(currentPortal.url, currentPortal.title)}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a
+                    href={currentPortal.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => speak({ text: `Opening ${currentPortal.title}` })}
                     className="farmer-button flex items-center justify-center"
                   >
                     <ExternalLink className="w-5 h-5 mr-2" />
                     {t.visitPortal}
-                  </button>
+                  </a>
                   
                   <button
                     onClick={() => speak({ text: currentPortal.description })}
@@ -305,10 +303,13 @@ const GovernmentPortals = ({ user, darkMode }) => {
             {portals.map((portal) => {
               const PortalIcon = portal.icon;
               return (
-                <div
+                <a
                   key={portal.id}
-                  className={`farmer-card ${darkMode ? 'bg-gray-800' : 'bg-white'} hover:shadow-xl transition-shadow cursor-pointer`}
-                  onClick={() => handlePortalClick(portal.url, portal.title)}
+                  href={portal.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`farmer-card ${darkMode ? 'bg-gray-800' : 'bg-white'} hover:shadow-xl transition-shadow`}
+                  onClick={() => speak({ text: `Opening ${portal.title}` })}
                 >
                   <div className="text-center">
                     <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full ${portal.color} mb-4`}>
@@ -330,13 +331,13 @@ const GovernmentPortals = ({ user, darkMode }) => {
                     </span>
                     
                     <div className="mt-4">
-                      <button className="text-farmer-green hover:text-green-700 font-medium text-sm flex items-center justify-center mx-auto">
+                      <span className="text-farmer-green hover:text-green-700 font-medium text-sm inline-flex items-center justify-center">
                         <ExternalLink className="w-4 h-4 mr-1" />
                         {t.visitPortal}
-                      </button>
+                      </span>
                     </div>
                   </div>
-                </div>
+                </a>
               );
             })}
           </div>
