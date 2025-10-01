@@ -1,0 +1,15 @@
+node_modules/
+build/
+dist/
+.env
+.env.local
+.env.*.local
+.DS_Store
+npm-debug.log*
+yarn-error.log*
+coverage/
+.parcel-cache/
+.pnp.cjs
+.pnp.loader.mjs
+.turbo/
+.vercel/
